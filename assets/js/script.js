@@ -13,6 +13,7 @@ $(window).on('load', function() {
   const btnNewGame = $('.content-new-game');
   const btnRollDie = $('.content-roll-die');
   const btnHold = $('.number-hold');
+  const dieImg = $('.die-img');
 
   // Player 1
   const numberPlayer1 = $('.number-player-1');
@@ -28,34 +29,33 @@ $(window).on('load', function() {
     numberCurrentPlayer1.text('0');
     numberPlayer2.text('0');
     numberCurrentPlayer2.text('0');
+    
   }
 
   // Function roll die
   const rollDie = function() {
-    numberPlayer1.text('0');
-    numberCurrentPlayer1.text('0');
-    numberPlayer2.text('0');
-    numberCurrentPlayer2.text('0');
+    dieImg.addClass('roll');
+    setTimeout(function() {
+      dieImg.removeClass('roll');
+
+    }, 1100)
   }
 
   // Function hold
   const hold = function() {
-    numberPlayer1.text('0');
-    numberCurrentPlayer1.text('0');
-    numberPlayer2.text('0');
-    numberCurrentPlayer2.text('0');
+    
   }
 
 
   
   // Start new game
-  btnNewGame.click(newGame);
+  btnNewGame.on('click', newGame);
   
   // Roll the die
-  btnRollDie.click(rollDie);
+  btnRollDie.on('click', rollDie);
 
   // Hold
-  btnHold.click(hold);
+  btnHold.on('click', hold);
 
 });
 
