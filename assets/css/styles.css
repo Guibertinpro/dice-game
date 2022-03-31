@@ -83,6 +83,9 @@ p{
 .current{
   font-size: 0.8rem;
 }
+.content-link {
+  cursor: pointer;
+}
 
 .content-link img{
   width: 20px;
