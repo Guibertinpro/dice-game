@@ -7,21 +7,121 @@
 :root{
   --color-primary : #DB4F4F;
   --color-light-grey: #F7F7F7;
-  
 }
 
 body{
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
   font-size: 16px;
+}
+
+p{
+  margin: 0;
 }
 
 #dice-game{
   box-shadow: 0 0 30px -8px rgb(50 50 50 / 60%);
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(var( --color-light-grey), var( --color-light-grey)) no-repeat;
-  background-repeat: no-repeat;
-  background-size: 100% 50%;
+}
+.content-dice-game {
+  height: 100%;
+}
+.container-current-game {
+  height: inherit;
+}
+.container-player{
+  height: 50%;
+  width: 100%;
+  position: relative;
+}
+.container-player-1{
+  background: var(--color-light-grey);
+}
+.content-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.container-new-game {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container-play {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.content-play {
+  max-width: 500px;
+  margin: auto;
+}
+.text-link{
+  font-size: 1rem;
+}
+
+.number-player{
+  font-weight: 200;
+  font-size: 4rem;
+  color: var(--color-primary);
+}
+.text-player{
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
+}
+
+.number-current{
+  color: white;
+  font-size: 2rem;
+}
+.current{
+  font-size: 0.8rem;
+}
+
+.content-link img{
+  width: 20px;
+  height: auto;
+}
+
+.dice-img{
+  width: 91px;
+  height: auto;
+  box-shadow: 0px 4px 33px -9px rgb(50 50 50 / 20%);
+}
+
+.global-player{
+  background: var(--color-primary);
+  width: 120px;
+  margin: auto;
+}
+
+.text-player-1:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+
+.container-dice {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.round-player {
+  margin-bottom: 40px;
 }
 
 @media (min-width: 768px){
@@ -32,7 +132,29 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 80vh;
+    max-width: 1000px;
+    max-height: 600px;
+  }
+  .container-player{
+    width: 50%;
+    height: 100%;
+  }
+  .container-dice {
+    top: -100px;
+  }
+  .content-hold {
+    position: absolute;
+    left: 50%;
+    bottom: -120px;
+    transform: translateX(-50%);
+  }
+  .content-roll-dice {
+    position: absolute;
+    left: 50%;
+    bottom: -70px;
+    transform: translateX(-50%);
+  }
+  .round-player {
+    margin-bottom: 100px;
   }
 }
