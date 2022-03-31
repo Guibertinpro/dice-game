@@ -19,12 +19,12 @@ p{
   margin: 0;
 }
 
-#dice-game{
+#die-game{
   box-shadow: 0 0 30px -8px rgb(50 50 50 / 60%);
   width: 100vw;
   height: 100vh;
 }
-.content-dice-game {
+.content-die-game {
   height: 100%;
 }
 .container-current-game {
@@ -92,7 +92,7 @@ p{
   height: auto;
 }
 
-.dice-img{
+.die-img{
   width: 91px;
   height: auto;
   box-shadow: 0px 4px 33px -9px rgb(50 50 50 / 20%);
@@ -117,7 +117,7 @@ p{
   transform: translateY(-50%);
 }
 
-.container-dice {
+.container-die {
   position: absolute;
   top: -32px;
   left: 50%;
@@ -128,7 +128,7 @@ p{
 }
 
 @media (min-width: 768px){
-  #dice-game{
+  #die-game{
     position: absolute;
     background-size: 50% 100%;
     box-shadow: 0 0 30px -8px rgb(50 50 50 / 60%);
@@ -143,7 +143,7 @@ p{
     width: 50%;
     height: 100%;
   }
-  .container-dice {
+  .container-die {
     top: -100px;
   }
   .content-hold {
@@ -152,7 +152,7 @@ p{
     bottom: -150px;
     transform: translateX(-50%);
   }
-  .content-roll-dice {
+  .content-roll-die {
     position: absolute;
     left: 50%;
     bottom: -100px;
