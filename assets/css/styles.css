@@ -35,7 +35,7 @@ p{
   width: 100%;
   position: relative;
 }
-.container-player-1{
+.active{
   background: var(--color-light-grey);
 }
 .content-player {
