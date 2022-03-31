@@ -134,7 +134,7 @@ p{
     transform: translate(-50%, -50%);
     width: 80vw;
     max-width: 1000px;
-    max-height: 600px;
+    max-height: 580px;
   }
   .container-player{
     width: 50%;
@@ -146,16 +146,19 @@ p{
   .content-hold {
     position: absolute;
     left: 50%;
-    bottom: -120px;
+    bottom: -150px;
     transform: translateX(-50%);
   }
   .content-roll-dice {
     position: absolute;
     left: 50%;
-    bottom: -70px;
+    bottom: -100px;
     transform: translateX(-50%);
   }
   .round-player {
     margin-bottom: 100px;
+  }
+  .container-new-game {
+    top: 10%;
   }
 }
