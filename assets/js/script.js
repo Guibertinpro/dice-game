@@ -44,6 +44,8 @@ const newGame = function(currentPlayer) {
     player1.classList.add('active');
     player2.classList.remove('active');
   }
+
+  winner.innerHTML = "";
   
 }
 
@@ -51,10 +53,10 @@ const newGame = function(currentPlayer) {
 const rollDie = function(currentPlayer) {
   
   // Get the actual round number
-  let textNumberPlayer = document.querySelector('.active .number-player');
-  let numberPlayer = textNumberPlayer.textContent;
+  let textROUND = document.querySelector('.active .number-player');
+  let ROUND = textROUND.textContent;
   // Initialize the new round number
-  let newNumberPlayer = 0;
+  let newROUND = 0;
   // Random a number
   dieValue = Math.floor(Math.random() * 6)
   // Roll the die image
@@ -70,14 +72,14 @@ const rollDie = function(currentPlayer) {
       // Show the corresponding image
       dieImg.setAttribute("src", images[dieValue]);
       // Set the new round number
-      newNumberPlayer = parseInt(numberPlayer) + dieValue + 1;
+      newROUND = parseInt(ROUND) + dieValue + 1;
       
       // Actions if new round number = 0
       if (dieValue == 0) {
 
         // Set the new round number to 0
-        newNumberPlayer = 0;
-        textNumberPlayer.innerHTML = "0";
+        newROUND = 0;
+        textROUND.innerHTML = "0";
 
         // Change the current player
         players.forEach(function(player) {
@@ -90,8 +92,8 @@ const rollDie = function(currentPlayer) {
         })
       } else {
         let currentCount = parseInt(document.querySelector('.active .number-current').textContent);
-        let totalCount = currentCount + newNumberPlayer;
-        console.log('total ' + totalCount);
+        let totalCount = currentCount + newROUND;
+        
         if(totalCount > 100){
           // Insert the winner
           winner.innerHTML = document.querySelector('.active .text-player').textContent;
@@ -99,10 +101,10 @@ const rollDie = function(currentPlayer) {
           winnerModal.classList.add('show');
           overlay.classList.add('show');
           // Show the new round number
-          textNumberPlayer.innerHTML = newNumberPlayer;
+          textROUND.innerHTML = newROUND;
         } else {
           // Show the new round number
-          textNumberPlayer.innerHTML = newNumberPlayer;
+          textROUND.innerHTML = newROUND;
         }
 
       }
@@ -117,23 +119,23 @@ const rollDie = function(currentPlayer) {
 const hold = function(currentPlayer) {
 
   // Initialize the new current number
-  let newCurrentNumber = 0;
+  let newGLOBAL = 0;
 
   // Actions if we are in the current player
   if (currentPlayer) {
     // Get the actual round and current numbers
-    let textCurrentNumberOfCurrentPlayer = document.querySelector('.active .number-current');
-    let textRoundNumberPlayer = document.querySelector('.active .number-player');
-    let numberToHold = textRoundNumberPlayer.textContent;
-    let currentNumber = textCurrentNumberOfCurrentPlayer.textContent;
+    let textGLOBAL = document.querySelector('.active .number-current');
+    let textActiveROUND = document.querySelector('.active .number-player');
+    let holdROUND = textActiveROUND.textContent;
+    let GLOBAL = textGLOBAL.textContent;
 
     // Set the new current number
-    newCurrentNumber = parseInt(numberToHold) + parseInt(currentNumber);
-    textCurrentNumberOfCurrentPlayer.innerHTML = newCurrentNumber;
+    newGLOBAL = parseInt(holdROUND) + parseInt(GLOBAL);
+    textGLOBAL.innerHTML = newGLOBAL;
     
     // Set the new round number to 0
-    newNumberPlayer = 0;
-    textRoundNumberPlayer.innerHTML = "0";
+    newROUND = 0;
+    textActiveROUND.innerHTML = "0";
 
     // Change the current player
     players.forEach(function(player) {
