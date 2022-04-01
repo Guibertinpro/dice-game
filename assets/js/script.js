@@ -74,7 +74,7 @@ const rollDie = (currentPlayer) => {
       // Set the new round number
       newROUND = parseInt(ROUND) + dieValue + 1;
       
-      // Actions if new round number = 0
+      // Actions if die 1
       if (dieValue == 0) {
 
         // Set the new round number to 0
@@ -91,9 +91,12 @@ const rollDie = (currentPlayer) => {
           
         })
       } else {
+        // Get current count
         let currentCount = parseInt(document.querySelector('.active .number-current').textContent);
+        // Set new current count
         let totalCount = currentCount + newROUND;
         
+        // If player win
         if(totalCount > 100){
           // Insert the winner
           winner.innerHTML = document.querySelector('.active .text-player').textContent;
