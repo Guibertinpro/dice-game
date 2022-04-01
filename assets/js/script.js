@@ -22,7 +22,7 @@ const overlay = document.querySelector('.overlay');
 let currentPlayer = document.querySelector('.active');
 
 // Function start new game
-const newGame = function(currentPlayer) {
+const newGame = (currentPlayer) => {
   // Set variables of numbers
   let textNumberPlayer1 = document.querySelector('.number-player-1');
   let textNumberPlayer2 = document.querySelector('.number-player-2');
@@ -50,7 +50,7 @@ const newGame = function(currentPlayer) {
 }
 
 // Function roll die
-const rollDie = function(currentPlayer) {
+const rollDie = (currentPlayer) => {
   
   // Get the actual round number
   let textROUND = document.querySelector('.active .number-player');
@@ -66,7 +66,7 @@ const rollDie = function(currentPlayer) {
   if (currentPlayer) {
     
     // Actions after 1.1s
-    setTimeout(function() {
+    setTimeout( () => {
       // Stop roll
       dieImg.classList.remove('roll');
       // Show the corresponding image
@@ -82,7 +82,7 @@ const rollDie = function(currentPlayer) {
         textROUND.innerHTML = "0";
 
         // Change the current player
-        players.forEach(function(player) {
+        players.forEach( (player) => {
           if (player.classList.contains('active')) {
             player.classList.remove('active');
           } else {
@@ -116,7 +116,7 @@ const rollDie = function(currentPlayer) {
 }
 
 // Function hold
-const hold = function(currentPlayer) {
+const hold = (currentPlayer) => {
 
   // Initialize the new current number
   let newGLOBAL = 0;
@@ -138,7 +138,7 @@ const hold = function(currentPlayer) {
     textActiveROUND.innerHTML = "0";
 
     // Change the current player
-    players.forEach(function(player) {
+    players.forEach((player) => {
       if (player.classList.contains('active')) {
         player.classList.remove('active');
       } else {
@@ -153,7 +153,7 @@ const hold = function(currentPlayer) {
 
 
 // Start new game
-btnsNewGame.forEach(function(btn) {
+btnsNewGame.forEach((btn) => {
   btn.addEventListener('click', newGame);
 });
 
