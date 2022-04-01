@@ -8,17 +8,21 @@ let images = [
   "../img/die-6.svg"
 ]
 
-const btnNewGame = document.querySelector('.content-new-game');
+const btnsNewGame = document.querySelectorAll('.content-new-game');
 const btnRollDie = document.querySelector('.content-roll-die');
 const btnHold = document.querySelector('.content-hold');
 const dieImg = document.querySelector('.die-img');
 let players = document.querySelectorAll('.container-player');
+let player1 = document.querySelector('.container-player-1');
+let player2 = document.querySelector('.container-player-2');
 const winnerModal = document.querySelector('.winner-modal');
 const winner = document.querySelector('.winner');
-
+const overlay = document.querySelector('.overlay');
+// Initialize the current player
+let currentPlayer = document.querySelector('.active');
 
 // Function start new game
-const newGame = function() {
+const newGame = function(currentPlayer) {
   // Set variables of numbers
   let textNumberPlayer1 = document.querySelector('.number-player-1');
   let textNumberPlayer2 = document.querySelector('.number-player-2');
@@ -30,11 +34,18 @@ const newGame = function() {
   textNumberCurrentPlayer1.innerHTML = "0";
   textNumberPlayer2.innerHTML = "0";
   textNumberCurrentPlayer2.innerHTML = "0";
+
+  // Hide modal winner if game finished
+  winnerModal.classList.remove('show');
+  overlay.classList.remove('show');
+
+  // Initialize current player to player 1
+  if(currentPlayer != player1) {
+    player1.classList.add('active');
+    player2.classList.remove('active');
+  }
+  
 }
-
-// Initialize the current player
-let currentPlayer = document.querySelector('.active');
-
 
 // Function roll die
 const rollDie = function(currentPlayer) {
@@ -78,8 +89,21 @@ const rollDie = function(currentPlayer) {
           
         })
       } else {
-        // Show the new round number
-        textNumberPlayer.innerHTML = newNumberPlayer;
+        let currentCount = parseInt(document.querySelector('.active .number-current').textContent);
+        let totalCount = currentCount + newNumberPlayer;
+        console.log('total ' + totalCount);
+        if(totalCount > 10){
+          // Insert the winner
+          winner.innerHTML = document.querySelector('.active .text-player').textContent;
+          // Show the winner modal
+          winnerModal.classList.add('show');
+          overlay.classList.add('show');
+          // Show the new round number
+          textNumberPlayer.innerHTML = newNumberPlayer;
+        } else {
+          // Show the new round number
+          textNumberPlayer.innerHTML = newNumberPlayer;
+        }
 
       }
     }, 1100);
@@ -98,9 +122,9 @@ const hold = function(currentPlayer) {
   // Actions if we are in the current player
   if (currentPlayer) {
     // Get the actual round and current numbers
+    let textCurrentNumberOfCurrentPlayer = document.querySelector('.active .number-current');
     let textRoundNumberPlayer = document.querySelector('.active .number-player');
     let numberToHold = textRoundNumberPlayer.textContent;
-    let textCurrentNumberOfCurrentPlayer = document.querySelector('.active .number-current');
     let currentNumber = textCurrentNumberOfCurrentPlayer.textContent;
 
     // Set the new current number
@@ -121,23 +145,23 @@ const hold = function(currentPlayer) {
       
     })
 
-    if(newCurrentNumber > 10){
-      winner.innerHTML = document.querySelector('.active .text-player').textContent;
-      winnerModal.classList.toggle('hide');
-    }
   }
   delete(currentPlayer);
 }
 
 
 // Start new game
-btnNewGame.addEventListener('click', newGame);
+btnsNewGame.forEach(function(btn) {
+  btn.addEventListener('click', newGame);
+});
 
 // Roll the die
 btnRollDie.addEventListener('click', rollDie);
 
 // Hold
 btnHold.addEventListener('click', hold);
+
+
 
 
 

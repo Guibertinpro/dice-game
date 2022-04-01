@@ -104,7 +104,7 @@ p{
   margin: auto;
 }
 
-.text-player-1:after {
+.active .text-player:after {
   content: "";
   display: block;
   position: absolute;
@@ -168,6 +168,36 @@ p{
 }
 .round-player {
   margin-bottom: 40px;
+}
+
+.winner-modal.show {
+  display: block!important;
+  z-index: 3;
+  opacity: 1;
+}
+.modal-content{
+  box-shadow: 0 0 30px -8px rgb(50 50 50 / 60%);
+}
+.winner-modal .modal-header, .winner-modal .modal-footer{
+  border: none;
+}
+.modal-title {
+  font-weight: 300;
+}
+.winner {
+  font-size: 3rem;
+  color: var(--color-primary);
+}
+
+.overlay.show{
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: .5;
 }
 
 @media (min-width: 768px){
