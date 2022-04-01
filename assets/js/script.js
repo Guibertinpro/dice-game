@@ -92,7 +92,7 @@ const rollDie = function(currentPlayer) {
         let currentCount = parseInt(document.querySelector('.active .number-current').textContent);
         let totalCount = currentCount + newNumberPlayer;
         console.log('total ' + totalCount);
-        if(totalCount > 10){
+        if(totalCount > 100){
           // Insert the winner
           winner.innerHTML = document.querySelector('.active .text-player').textContent;
           // Show the winner modal
