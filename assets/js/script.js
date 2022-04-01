@@ -1,11 +1,11 @@
 // Set variables
 let images = [
-  "../img/die-1.svg",
-  "../img/die-2.svg",
-  "../img/die-3.svg",
-  "../img/die-4.svg",
-  "../img/die-5.svg",
-  "../img/die-6.svg"
+  "./assets/img/die-1.svg",
+  "./assets/img/die-2.svg",
+  "./assets/img/die-3.svg",
+  "./assets/img/die-4.svg",
+  "./assets/img/die-5.svg",
+  "./assets/img/die-6.svg"
 ]
 
 const btnsNewGame = document.querySelectorAll('.content-new-game');
