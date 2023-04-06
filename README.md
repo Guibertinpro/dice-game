@@ -1,1 +1,1 @@
-# guillaume-bertin-eval-entrainement-javascript
+# dice-game
